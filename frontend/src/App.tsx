@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="app">
       <aside className="sidebar">
-        <div className="logo">Mudir</div>
+        <div className="logo">MUDIR</div>
 
         <nav className="navigation">
           <button>Dashboard</button>
@@ -28,7 +28,9 @@ function App() {
           <button>Settings</button>
         </nav>
 
-        <button className="login-button">Login</button>
+        <button className="login-button">
+          Login
+        </button>
       </aside>
 
       <main className="main-content">

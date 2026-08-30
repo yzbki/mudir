@@ -21,7 +21,7 @@ body {
 .sidebar {
   width: 240px;
   min-height: 100vh;
-  background-color: #0052cc;
+  background-color: #1F305E;
   display: flex;
   flex-direction: column;
   padding: 24px 16px;
@@ -69,6 +69,7 @@ body {
   padding: 48px;
   background-color: #F7F8FA;
   color: #172B4D;
+  position: relative;
 }
 
 .main-content h1 {
