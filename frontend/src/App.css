@@ -128,7 +128,7 @@
 }
 
 .main-content button:active {
-  transform: translateY(1px);
+  transform: scale(0.95);
 }
 
 .auth-container {
@@ -193,4 +193,47 @@
 
 .delete-button:hover {
   background-color: #bf2600 !important;
+}
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 45px;
+  box-sizing: border-box;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  width: 60px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stay-logged-in {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 12px;
+  color: #5e6c84;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.stay-logged-in input {
+  width: auto !important;
+  margin: 0 !important;
+  cursor: pointer;
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import confetti from 'canvas-confetti'
 
 type User = {
   id: number
@@ -14,9 +15,13 @@ function App() {
   const [password, setPassword] = useState('')
   const [mode, setMode] = useState<'login' | 'signup'>('login')
   const [message, setMessage] = useState('Loading...')
+  const [showPassword, setShowPassword] = useState(false)
+  const [stayLoggedIn, setStayLoggedIn] = useState(false)
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
+    const token =
+      localStorage.getItem('token') ||
+      sessionStorage.getItem('token')
 
     if (!token) {
       setMessage('')
@@ -80,7 +85,27 @@ function App() {
         return
       }
 
-      localStorage.setItem('token', data.token)
+      if (mode === 'signup') {
+        confetti({
+          particleCount: 200,
+          spread: 100,
+          origin: { y: 0.6 },
+        })
+
+        setName('')
+        setEmail('')
+        setPassword('')
+        setMode('login')
+        setMessage('Account created. Please log in.')
+        return
+      }
+
+      if (stayLoggedIn) {
+        localStorage.setItem('token', data.token)
+      } else {
+        sessionStorage.setItem('token', data.token)
+      }
+
       setUser({
         id: data.id,
         name: data.name,
@@ -99,12 +124,15 @@ function App() {
 
   const logout = () => {
     localStorage.removeItem('token')
+    sessionStorage.removeItem('token')
     setUser(null)
     setMessage('')
   }
 
   const deleteAccount = async () => {
-    const token = localStorage.getItem('token')
+    const token =
+      localStorage.getItem('token') ||
+      sessionStorage.getItem('token')
 
     if (!token) return
 
@@ -126,6 +154,7 @@ function App() {
 
     if (response.ok) {
       localStorage.removeItem('token')
+      sessionStorage.removeItem('token')
       setUser(null)
       setMessage('Account deleted successfully')
     } else {
@@ -188,12 +217,34 @@ function App() {
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="password-container">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? 'HIDE' : 'SHOW'}
+              </button>
+            </div>
+
+            { mode === 'login' && (
+              <label className="stay-logged-in">
+                <input
+                  type="checkbox"
+                  checked={stayLoggedIn}
+                  onChange={(e) => setStayLoggedIn(e.target.checked)}
+                />
+                Stay logged in
+              </label>
+            )}
 
             <button
               className="primary-button"
