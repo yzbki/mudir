@@ -3,36 +3,28 @@
   min-height: 100vh;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
 .app {
   display: flex;
   min-height: 100vh;
-  background: white;
 }
+
+/* Sidebar */
 
 .sidebar {
   width: 240px;
   min-height: 100vh;
-  background-color: #1F305E;
+  background-color: #1f305e;
   display: flex;
   flex-direction: column;
   padding: 24px 16px;
 }
 
 .logo {
-  font-family: "Georgia", serif;
+  font-family: Georgia, serif;
   color: white;
   font-size: 48px;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
   padding: 0;
   margin: 12px 0 40px;
 }
@@ -40,44 +32,165 @@ body {
 .navigation {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
 .navigation button,
 .login-button {
+  width: 100%;
   border: none;
   background: transparent;
-  color: white;
+  color: #dfe7f5;
   text-align: left;
+  font-family: inherit;
   font-size: 15px;
+  font-weight: 500;
   padding: 12px;
-  border-radius: 6px;
+  border-radius: 7px;
   cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .navigation button:hover,
 .login-button:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .login-button {
   margin-top: auto;
 }
 
+/* Main content */
+
 .main-content {
   flex: 1;
+  min-width: 0;
   padding: 48px;
-  background-color: #F7F8FA;
-  color: #172B4D;
-  position: relative;
+  background-color: #f7f8fa;
+  color: #172b4d;
 }
 
 .main-content h1 {
-  margin-top: 0;
-  font-size: 28px;
-  color: #172B4D;
+  margin: 0 0 32px;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: #172b4d;
 }
 
 .main-content p {
+  margin: 0 0 16px;
   color: #5e6c84;
+}
+
+/* Forms */
+
+.main-content input {
+  display: block;
+  width: 320px;
+  max-width: 100%;
+  margin-bottom: 12px;
+  padding: 11px 13px;
+  border: 1px solid #dfe1e6;
+  border-radius: 6px;
+  background-color: white;
+  color: #172b4d;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.main-content input:focus {
+  border-color: #172b4d;
+  box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.12);
+}
+
+/* Buttons */
+
+.main-content button {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  margin-right: 8px;
+  background-color: #172b4d;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.main-content button:hover {
+  background-color: #4d1717;
+}
+
+.main-content button:active {
+  transform: translateY(1px);
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-container h1 {
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  margin-bottom: 28px !important;
+}
+
+.main-content input {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.primary-button {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.switch-button {
+  background: transparent !important;
+  color: #0052cc !important;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.switch-button:hover {
+  background: rgba(0, 82, 204, 0.06) !important;
+}
+
+.message {
+  margin-top: 20px !important;
+}
+
+.account-container {
+  max-width: 700px;
+}
+
+.account-card {
+  background: white;
+  border: 1px solid #dfe1e6;
+  border-radius: 10px;
+  padding: 28px;
+  max-width: 500px;
+}
+
+.account-card h2 {
+  margin-top: 0;
+  color: #172b4d;
+}
+
+.delete-button {
+  margin-top: 20px;
+  background-color: #de350b !important;
+}
+
+.delete-button:hover {
+  background-color: #bf2600 !important;
 }
