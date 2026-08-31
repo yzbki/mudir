@@ -46,6 +46,7 @@ function App() {
       })
       .catch(() => {
         localStorage.removeItem('token')
+        sessionStorage.removeItem('token')
         setUser(null)
         setMessage('')
       })
@@ -166,7 +167,7 @@ function App() {
     <div className="app">
 
       <aside className="sidebar">
-        <div className="logo">Mudir</div>
+        <div className="logo">MUDIR</div>
 
         <nav className="navigation">
           <button>Dashboard</button>

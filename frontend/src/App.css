@@ -22,11 +22,12 @@
 .logo {
   font-family: Georgia, serif;
   color: white;
-  font-size: 48px;
+  font-size: 45px;
   font-weight: 700;
   letter-spacing: -1px;
   padding: 0;
-  margin: 12px 0 40px;
+  margin: 12px 12px 12px;
+  text-align: left;
 }
 
 .navigation {
@@ -69,6 +70,10 @@
   padding: 48px;
   background-color: #f7f8fa;
   color: #172b4d;
+
+  display: flex;
+  justify-content: left;
+  align-items: left;
 }
 
 .main-content h1 {
